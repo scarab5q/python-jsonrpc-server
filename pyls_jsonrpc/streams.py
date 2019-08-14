@@ -23,7 +23,7 @@ class JsonRpcStreamReader(object):
         while not self._rfile.closed:
             request_str = self._read_message()
 
-            if request_str is None:
+            if request_str is None or request_str is '\r\n':
                 break
 
             try:
